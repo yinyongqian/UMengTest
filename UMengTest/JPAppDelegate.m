@@ -7,6 +7,7 @@
 //
 
 #import "JPAppDelegate.h"
+#import "MobClick.h"
 
 @implementation JPAppDelegate
 
@@ -16,6 +17,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [MobClick startWithAppkey:@"53ba0dcd56240b741b00357f" reportPolicy:SEND_INTERVAL   channelId:@"Web"];
+    
+    
     return YES;
 }
 

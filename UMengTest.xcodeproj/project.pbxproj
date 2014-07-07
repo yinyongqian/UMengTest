@@ -19,6 +19,8 @@
 		0FB2E8B4196A4CB5003C2F71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2E89C196A4CB5003C2F71 /* UIKit.framework */; };
 		0FB2E8BC196A4CB5003C2F71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FB2E8BA196A4CB5003C2F71 /* InfoPlist.strings */; };
 		0FB2E8BE196A4CB5003C2F71 /* UMengTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2E8BD196A4CB5003C2F71 /* UMengTestTests.m */; };
+		0FB2E8CB196A75A3003C2F71 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2E8C8196A75A3003C2F71 /* libMobClickLibrary.a */; };
+		0FB2E8CD196A779A003C2F71 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB2E8CC196A779A003C2F71 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,10 @@
 		0FB2E8B9196A4CB5003C2F71 /* UMengTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UMengTestTests-Info.plist"; sourceTree = "<group>"; };
 		0FB2E8BB196A4CB5003C2F71 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FB2E8BD196A4CB5003C2F71 /* UMengTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMengTestTests.m; sourceTree = "<group>"; };
+		0FB2E8C8196A75A3003C2F71 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		0FB2E8C9196A75A3003C2F71 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		0FB2E8CA196A75A3003C2F71 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		0FB2E8CC196A779A003C2F71 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +61,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FB2E8CD196A779A003C2F71 /* libz.dylib in Frameworks */,
 				0FB2E89B196A4CB5003C2F71 /* CoreGraphics.framework in Frameworks */,
 				0FB2E89D196A4CB5003C2F71 /* UIKit.framework in Frameworks */,
 				0FB2E899196A4CB5003C2F71 /* Foundation.framework in Frameworks */,
+				0FB2E8CB196A75A3003C2F71 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +104,7 @@
 		0FB2E897196A4CB5003C2F71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FB2E8CC196A779A003C2F71 /* libz.dylib */,
 				0FB2E898196A4CB5003C2F71 /* Foundation.framework */,
 				0FB2E89A196A4CB5003C2F71 /* CoreGraphics.framework */,
 				0FB2E89C196A4CB5003C2F71 /* UIKit.framework */,
@@ -109,6 +118,7 @@
 			children = (
 				0FB2E8A7196A4CB5003C2F71 /* JPAppDelegate.h */,
 				0FB2E8A8196A4CB5003C2F71 /* JPAppDelegate.m */,
+				0FB2E8C7196A7592003C2F71 /* UMSDK */,
 				0FB2E8AA196A4CB5003C2F71 /* Images.xcassets */,
 				0FB2E89F196A4CB5003C2F71 /* Supporting Files */,
 			);
@@ -142,6 +152,16 @@
 				0FB2E8BA196A4CB5003C2F71 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FB2E8C7196A7592003C2F71 /* UMSDK */ = {
+			isa = PBXGroup;
+			children = (
+				0FB2E8C8196A75A3003C2F71 /* libMobClickLibrary.a */,
+				0FB2E8C9196A75A3003C2F71 /* MobClick.h */,
+				0FB2E8CA196A75A3003C2F71 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +382,10 @@
 				GCC_PREFIX_HEADER = "UMengTest/UMengTest-Prefix.pch";
 				INFOPLIST_FILE = "UMengTest/UMengTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMengTest/UMSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -377,6 +401,10 @@
 				GCC_PREFIX_HEADER = "UMengTest/UMengTest-Prefix.pch";
 				INFOPLIST_FILE = "UMengTest/UMengTest-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UMengTest/UMSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -442,6 +470,7 @@
 				0FB2E8C3196A4CB5003C2F71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FB2E8C4196A4CB5003C2F71 /* Build configuration list for PBXNativeTarget "UMengTestTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +479,7 @@
 				0FB2E8C6196A4CB5003C2F71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
